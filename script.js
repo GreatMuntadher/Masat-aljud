@@ -1,7 +1,7 @@
 const CONFIG = {
   phone: "+9647880061999",
-  email: "Hr@masataljud.com",
-  apiUrl: "https://script.google.com/macros/s/AKfycby9AtST9vyJReK1DSAHwYD_7cLutUJMxt2xrqZdKWhIiSKQmmLHPSj4cj1KK-UaHx4U/exec",
+  email: "HR@masataljud.com",
+  apiUrl: "https://script.google.com/macros/s/AKfycbxIJeESq3vurDSkcoQjosSBgbA9SIDSEcRduCj_MSjZEcxF5BYw1q0wrhoJtu45dvUYMA/exec",
   applyFormUrl: "https://example.com/forms/job-application",
   // روابط Google Forms العامة المعتمدة؛ تبقى الروابط المؤقتة أدناه مانع إطلاق حتى استبدالها.
   leaveFormUrl: "https://forms.gle/fswMxBEyPF1RLxrk9",
