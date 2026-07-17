@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#020812" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="موارد ماسة الجود" />
+  <title>بوابة الموارد البشرية | شركة ماسة الجود</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json?v=6" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css?v=9" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header id="header">
+    <div class="container navbar">
+      <a class="logo" href="index.html" aria-label="بوابة الموارد البشرية | شركة ماسة الجود">
+        <span class="logo-icon">
+          <img src="icons/logo-mark.svg" width="28" height="28" alt="" class="logo-mark-icon">
+        </span>
+        <span class="logo-text">بوابة الموارد البشرية | <strong>ماسة الجود</strong></span>
+      </a>
+
+      <nav class="nav-actions" aria-label="القائمة الرئيسية">
+        <a class="nav-link" href="#home">الرئيسية</a>
+        <a class="nav-link" href="#announcements">الإعلانات</a>
+        <a class="nav-link" href="#forms">النماذج</a>
+        <button class="btn btn-dark btn-sm" type="button" onclick="openAdminLogin()">دخول الأدمن</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero portal-hero" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span>إعلانات وخدمات قسم الموارد البشرية | ماسة الجود</div>
+          <h1>بوابة الموارد البشرية</h1>
+          <p>
+            نظام داخلي لتنظيم خدمات الموظفين وتسهيل إجراءات الموارد البشرية داخل شركة ماسة الجود.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#quickAccess">استعراض الخدمات</a>
+          </div>
+
+          <div class="hero-metrics" aria-label="مؤشرات البوابة">
+            <div><strong>5</strong><span>خدمات رئيسية</span></div>
+            <div><strong>24/7</strong><span>وصول سريع</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <!-- مشهد Isometric يمثّل "بوابة خدمات الموظفين": منصة زجاجية + كروت أيقونات عائمة متصلة بخطوط نيون — بلا أي نص أو بيانات -->
+          <div class="iso-scene" aria-hidden="true">
+            <div class="iso-glow"></div>
+
+            <div class="iso-particles">
+              <span class="iso-particle p1"></span>
+              <span class="iso-particle p2"></span>
+              <span class="iso-particle p3"></span>
+              <span class="iso-particle p4"></span>
+              <span class="iso-particle p5"></span>
+              <span class="iso-particle p6"></span>
+            </div>
+
+            <svg class="iso-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="isoLineGrad" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#18bfff" stop-opacity=".05"/>
+                  <stop offset="100%" stop-color="#18bfff" stop-opacity=".55"/>
+                </linearGradient>
+              </defs>
+              <line x1="50" y1="84" x2="16" y2="42" stroke="url(#isoLineGrad)" stroke-width="0.6"/>
+              <line x1="50" y1="84" x2="84" y2="36" stroke="url(#isoLineGrad)" stroke-width="0.6"/>
+              <line x1="50" y1="84" x2="26" y2="16" stroke="url(#isoLineGrad)" stroke-width="0.6"/>
+              <line x1="50" y1="84" x2="76" y2="20" stroke="url(#isoLineGrad)" stroke-width="0.6"/>
+              <line x1="50" y1="84" x2="50" y2="8" stroke="url(#isoLineGrad)" stroke-width="0.6"/>
+            </svg>
+
+            <div class="iso-platform"></div>
+
+            <div class="iso-card-pos" style="left:16%;top:42%">
+              <div class="iso-card card-1" title="ملف الموظف">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="16" rx="2"/>
+                  <circle cx="9" cy="10" r="2"/>
+                  <path d="M6 17c.5-2 2-3 3-3s2.5 1 3 3"/>
+                  <line x1="14" y1="8" x2="18" y2="8"/>
+                  <line x1="14" y1="12" x2="18" y2="12"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="iso-card-pos" style="left:84%;top:36%">
+              <div class="iso-card card-2" title="الطلبات">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="iso-card-pos" style="left:26%;top:16%">
+              <div class="iso-card card-3" title="المستندات">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 3v5h5"/>
+                  <path d="M6 3h8l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/>
+                  <line x1="8" y1="13" x2="16" y2="13"/>
+                  <line x1="8" y1="17" x2="13" y2="17"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="iso-card-pos" style="left:76%;top:20%">
+              <div class="iso-card card-4" title="الحضور">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 7v5l3.5 2"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="iso-card-pos" style="left:50%;top:8%">
+              <div class="iso-card card-5" title="الإشعارات">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="announcements" class="content-section section-panel">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker">الإعلانات</span>
+          <h2>لوحة الإعلانات</h2>
+          <p>آخر تحديثات وتنبيهات قسم الموارد البشرية في شركة ماسة الجود تظهر هنا بشكل واضح ومرتب.</p>
+        </div>
+        <div class="ann-list" id="annList"></div>
+      </div>
+    </section>
+
+    <section class="quick-section" id="quickAccess">
+      <div class="container">
+        <div class="section-title reveal quick-section-title">
+          <span class="section-kicker">الوصول السريع</span>
+          <h2>بطاقات الوصول السريع</h2>
+          <p>اختصارات مباشرة إلى أهم خدمات ونماذج وسياسات الموارد البشرية.</p>
+        </div>
+        <div class="quick-grid"></div>
+      </div>
+    </section>
+
+    <section id="forms" class="content-section section-panel">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker blue">النماذج والخدمات</span>
+          <h2>النماذج والخدمات</h2>
+          <p>روابط موحدة لأهم النماذج والخدمات التي يحتاجها موظفو شركة ماسة الجود.</p>
+        </div>
+
+        <div class="forms-grid"></div>
+
+        <div class="employee-guide-inline">
+          <div class="section-title reveal guide-section-title">
+            <span class="section-kicker">دليل سريع</span>
+            <h2>دليل الموظف السريع</h2>
+            <p>إرشادات مختصرة لاستخدام النماذج والخدمات الداخلية بشكل صحيح.</p>
+          </div>
+
+          <div class="employee-guide-grid">
+            <article class="card guide-card reveal">
+              <div class="icon-box" aria-hidden="true">🗓️</div>
+              <div class="guide-content">
+                <h3>طلب الإجازة والزمنية</h3>
+                <p>يتم تقديم الطلب من خلال النموذج الرسمي، ولا يُعد موافقاً عليه إلا بعد المراجعة والاعتماد.</p>
+              </div>
+            </article>
+
+            <article class="card guide-card reveal">
+              <div class="icon-box" aria-hidden="true">🧭</div>
+              <div class="guide-content">
+                <h3>طلب مهمة عمل</h3>
+                <p>يُستخدم عند وجود تكليف رسمي، مع توضيح الجهة والغرض ووقت المهمة بدقة.</p>
+              </div>
+            </article>
+
+            <article class="card guide-card reveal">
+              <div class="icon-box" aria-hidden="true">🪪</div>
+              <div class="guide-content">
+                <h3>تحديث بيانات الموظف</h3>
+                <p>يجب تحديث البيانات الشخصية والمستمسكات عند حدوث أي تغيير لضمان دقة السجلات.</p>
+              </div>
+            </article>
+
+            <article class="card guide-card reveal">
+              <div class="icon-box" aria-hidden="true">🕘</div>
+              <div class="guide-content">
+                <h3>مشاكل الحضور والبصمة</h3>
+                <p>يجب إبلاغ المدير المباشر والموارد البشرية في اليوم نفسه عند وجود مشكلة في التسجيل.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="policies" class="policies-section content-section section-panel">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker policy-kicker">السياسات</span>
+          <h2>السياسات واللوائح الداخلية</h2>
+          <p>الاطلاع على السياسات والتعليمات واللوائح المعتمدة لتنظيم بيئة العمل وحقوق وواجبات الموظفين.</p>
+        </div>
+        <div class="policies-grid" id="policiesGrid"></div>
+      </div>
+    </section>
+
+    <section id="info" class="info-section content-section">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <span class="section-kicker">التواصل</span>
+            <h2>معلومات التواصل</h2>
+            <p>نعمل لتنظيم بيئة العمل وتسهيل خدمات الموظفين.</p>
+          </div>
+          <div class="contact-items">
+            <div class="contact-item">📞 <span id="hrPhone">+9647880061999</span></div>
+            <div class="contact-item">✉️ <a id="hrEmail" href="mailto:Hr@masataljud.com">Hr@masataljud.com</a></div>
+            <div class="contact-item">🕘 السبت–الخميس 8:30–4:30</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-mini">
+      <p>جميع الحقوق محفوظة &copy; <span id="year">2026</span> قسم الموارد البشرية - شركة ماسة الجود.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="adminLoginModal" aria-hidden="true">
+    <div class="modal-dialog admin-dialog" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3>دخول أدمن ماسة الجود</h3>
+        <button class="xbtn" type="button" onclick="closeAdminLogin()">✕</button>
+      </div>
+      <div class="admin-login-body">
+        <p class="admin-login-text">الرجاء إدخال كلمة المرور للدخول إلى بوابة أدمن شركة ماسة الجود.</p>
+        <input type="password" id="adminPassword" placeholder="أدخل كلمة المرور" class="admin-password-input" />
+        <div id="adminLoginError" class="admin-login-error"></div>
+        <div class="admin-login-actions">
+          <button class="btn btn-primary" id="adminLoginSubmit" type="button" onclick="submitAdminLogin()">دخول</button>
+          <button class="btn btn-outline-dark" type="button" onclick="closeAdminLogin()">إلغاء</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js?v=9"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js?v=11"));
+    }
+  </script>
+</body>
+</html>

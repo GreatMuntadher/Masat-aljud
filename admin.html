@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#020812" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>بوابة أدمن شركة ماسة الجود | الموارد البشرية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json?v=6" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="admin.css?v=10" />
+</head>
+<body class="admin-page">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="admin-header app-header">
+    <div class="container admin-topbar">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">
+          <img src="icons/logo-mark.svg" width="28" height="28" alt="" class="logo-mark-icon">
+        </span>
+        <span class="logo-text">أدمن <strong>ماسة الجود</strong></span>
+      </a>
+
+      <div class="admin-top-actions">
+        <a href="index.html" class="btn btn-primary">العودة لبوابة ماسة الجود</a>
+        <button class="btn btn-dark" type="button" onclick="logoutAdmin()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <section class="admin-hero">
+      <div>
+        <span class="section-kicker">إدارة المحتوى</span>
+        <h1>مركز إدارة ماسة الجود</h1>
+        <p>بوابة أدمن شركة ماسة الجود لإدارة الملفات الإدارية وروابط الأدوات والسجلات الداخلية الخاصة بفريق الموارد البشرية والإدارة.</p>
+      </div>
+      <div class="admin-help">للدعم: 07880061999</div>
+    </section>
+
+    <section class="admin-dashboard">
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statAdminFiles">0</span>
+        <span class="dashboard-stat-label">الملفات الإدارية</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statAdminFilesActive">0</span>
+        <span class="dashboard-stat-label">الملفات النشطة</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statAdminFilesCategories">0</span>
+        <span class="dashboard-stat-label">تصنيفات الملفات</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statQuickCards">0</span>
+        <span class="dashboard-stat-label">الكروت السريعة</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statForms">0</span>
+        <span class="dashboard-stat-label">النماذج</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statAnnouncements">0</span>
+        <span class="dashboard-stat-label">الإعلانات</span>
+      </div>
+      <div class="dashboard-stat">
+        <span class="dashboard-stat-value" id="statPoliciesActive">0</span>
+        <span class="dashboard-stat-label">السياسات النشطة</span>
+      </div>
+      <div class="dashboard-stat dashboard-stat-warning">
+        <span class="dashboard-stat-value" id="statPending">0</span>
+        <span class="dashboard-stat-label">غير متزامن (pendingSync)</span>
+      </div>
+    </section>
+
+    <nav class="admin-tabs" role="tablist">
+      <button class="admin-tab-btn active" type="button" data-tab="adminCards" role="tab" aria-selected="true">الملفات الإدارية</button>
+      <button class="admin-tab-btn" type="button" data-tab="quickCards" role="tab" aria-selected="false">الكروت السريعة</button>
+      <button class="admin-tab-btn" type="button" data-tab="forms" role="tab" aria-selected="false">النماذج</button>
+      <button class="admin-tab-btn" type="button" data-tab="services" role="tab" aria-selected="false">الخدمات</button>
+      <button class="admin-tab-btn" type="button" data-tab="announcements" role="tab" aria-selected="false">الإعلانات</button>
+      <button class="admin-tab-btn" type="button" data-tab="policies" role="tab" aria-selected="false">السياسات واللوائح</button>
+      <button class="admin-tab-btn" type="button" data-tab="auditLog" role="tab" aria-selected="false">سجل النشاط</button>
+      <button class="admin-tab-btn" type="button" data-tab="sync" role="tab" aria-selected="false">
+        المزامنة
+        <span class="cms-pending-count" id="pendingCount" hidden>0</span>
+      </button>
+    </nav>
+
+    <div class="cms-status-banner" id="cmsStatusBanner" hidden></div>
+
+    <section class="admin-section tab-panel" data-tab-panel="adminCards">
+      <div class="cms-section-title admin-files-heading">
+        <div>
+          <span class="section-kicker">الملفات الإدارية</span>
+          <h2>الملفات الإدارية</h2>
+          <p>وصول سريع إلى الملفات والسجلات والأدوات الإدارية المعتمدة لقسم الموارد البشرية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('adminCards')">+ إضافة ملف إداري</button>
+      </div>
+
+      <div class="admin-files-note">
+        التعديلات تُحفظ محلياً حالياً، وستتم مزامنتها مع Google Sheet بعد تفعيل Phase B.
+      </div>
+
+      <section class="admin-files-stats" aria-label="إحصائيات الملفات الإدارية">
+        <div class="dashboard-stat">
+          <span class="dashboard-stat-value" id="adminFilesTotalStat">0</span>
+          <span class="dashboard-stat-label">إجمالي الملفات الإدارية</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="dashboard-stat-value" id="adminFilesActiveStat">0</span>
+          <span class="dashboard-stat-label">الملفات النشطة</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="dashboard-stat-value" id="adminFilesHiddenStat">0</span>
+          <span class="dashboard-stat-label">الملفات المخفية</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="dashboard-stat-value" id="adminFilesCategoriesStat">0</span>
+          <span class="dashboard-stat-label">عدد التصنيفات المستخدمة</span>
+        </div>
+      </section>
+
+      <div class="cms-toolbar-inline admin-files-toolbar">
+        <input type="text" class="cms-search-input" placeholder="بحث بالاسم أو الوصف أو التصنيف..." data-filter-search="adminCards">
+        <select class="cms-status-filter" data-filter-category="adminCards" id="adminCardsCategoryFilter">
+          <option value="all">كل التصنيفات</option>
+        </select>
+        <select class="cms-status-filter" data-filter-status="adminCards">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+          <option value="pending">لم يُزامن</option>
+        </select>
+        <button class="btn btn-outline" type="button" onclick="refreshFromSheet()">تحديث من Sheet</button>
+      </div>
+
+      <div class="cms-list" id="adminCardsManageList"></div>
+      <div class="cards-grid" id="adminCardsList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="quickCards" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">الوصول السريع</span>
+          <h2>الكروت السريعة (أعلى الصفحة الرئيسية)</h2>
+          <p>الكروت الظاهرة ضمن "استعراض الخدمات" في أعلى بوابة الموارد البشرية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('quickCards')">+ إضافة كرت جديد</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="quickCards">
+        <select class="cms-status-filter" data-filter-status="quickCards">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+          <option value="pending">لم يُزامن</option>
+        </select>
+        <button class="btn btn-outline" type="button" onclick="refreshFromSheet()">تحديث من Sheet</button>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="quickCardsManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="forms" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">النماذج</span>
+          <h2>النماذج</h2>
+          <p>نماذج قسم "النماذج" في الصفحة الرئيسية (روابط Google Form).</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('forms')">+ إضافة نموذج جديد</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="forms">
+        <select class="cms-status-filter" data-filter-status="forms">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+          <option value="pending">لم يُزامن</option>
+        </select>
+        <button class="btn btn-outline" type="button" onclick="refreshFromSheet()">تحديث من Sheet</button>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="formsManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="services" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">الخدمات</span>
+          <h2>الخدمات</h2>
+          <p>الخدمات الظاهرة في الصفحة الرئيسية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('services')">+ إضافة خدمة جديدة</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="services">
+        <select class="cms-status-filter" data-filter-status="services">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+          <option value="pending">لم يُزامن</option>
+        </select>
+        <button class="btn btn-outline" type="button" onclick="refreshFromSheet()">تحديث من Sheet</button>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="servicesManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="announcements" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">الإعلانات</span>
+          <h2>الإعلانات</h2>
+          <p>الإعلانات الظاهرة في "لوحة الإعلانات" بالصفحة الرئيسية.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('announcements')">+ إضافة إعلان جديد</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="announcements">
+        <select class="cms-status-filter" data-filter-status="announcements">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+          <option value="pending">لم يُزامن</option>
+        </select>
+        <button class="btn btn-outline" type="button" onclick="refreshFromSheet()">تحديث من Sheet</button>
+        <a class="btn btn-dark" href="index.html" target="_blank" rel="noopener">معاينة الصفحة الرئيسية</a>
+      </div>
+      <div class="cms-list" id="announcementsManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="policies" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">السياسات واللوائح</span>
+          <h2>إدارة السياسات</h2>
+          <p>إدارة بطاقات السياسات واللوائح الظاهرة في الصفحة الرئيسية. الحفظ الحالي محلي ومعلّق حتى نشر Phase B يدوياً.</p>
+        </div>
+        <button class="btn btn-add" type="button" onclick="openItemEditor('policies')">+ إضافة سياسة جديدة</button>
+      </div>
+      <div class="cms-toolbar-inline">
+        <input type="text" class="cms-search-input" placeholder="بحث بالعنوان..." data-filter-search="policies">
+        <select class="cms-status-filter" data-filter-status="policies">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="hidden">مخفي</option>
+          <option value="pending">لم يُزامن</option>
+        </select>
+        <button class="btn btn-outline" type="button" onclick="refreshFromSheet()">تحديث من Sheet</button>
+        <a class="btn btn-dark" href="index.html#policies" target="_blank" rel="noopener">معاينة قسم السياسات</a>
+      </div>
+      <div class="cms-list" id="policiesManageList"></div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="auditLog" hidden>
+      <div class="cms-section-title">
+        <div>
+          <span class="section-kicker">سجل النشاط</span>
+          <h2>سجل النشاط</h2>
+          <p>سجل محلي للقراءة فقط يوضح العمليات الإدارية الأساسية ولا يسمح بتعديل أي سجل.</p>
+        </div>
+        <button class="btn btn-dark" type="button" onclick="clearAuditLog()">مسح سجل النشاط</button>
+      </div>
+
+      <section class="admin-files-stats audit-stats" aria-label="إحصائيات سجل النشاط">
+        <div class="dashboard-stat">
+          <span class="dashboard-stat-value" id="auditTotalStat">0</span>
+          <span class="dashboard-stat-label">إجمالي العمليات</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="dashboard-stat-value" id="auditTodayStat">0</span>
+          <span class="dashboard-stat-label">عمليات اليوم</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="dashboard-stat-value" id="auditSuccessStat">0</span>
+          <span class="dashboard-stat-label">الناجحة</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="dashboard-stat-value" id="auditFailedStat">0</span>
+          <span class="dashboard-stat-label">الفاشلة</span>
+        </div>
+      </section>
+
+      <div class="cms-toolbar-inline audit-toolbar">
+        <select class="cms-status-filter" id="auditSectionFilter">
+          <option value="all">كل الأقسام</option>
+          <option value="auth">المصادقة</option>
+          <option value="adminCards">الملفات الإدارية</option>
+          <option value="quickCards">الكروت السريعة</option>
+          <option value="forms">النماذج</option>
+          <option value="services">الخدمات</option>
+          <option value="announcements">الإعلانات</option>
+          <option value="policies">السياسات واللوائح</option>
+          <option value="sync">المزامنة</option>
+          <option value="system">النظام</option>
+        </select>
+        <select class="cms-status-filter" id="auditActionFilter">
+          <option value="all">كل العمليات</option>
+          <option value="login">تسجيل الدخول</option>
+          <option value="logout">تسجيل الخروج</option>
+          <option value="create">إضافة عنصر</option>
+          <option value="update">تعديل عنصر</option>
+          <option value="delete">حذف عنصر</option>
+          <option value="activate">تفعيل</option>
+          <option value="deactivate">تعطيل</option>
+          <option value="reorder">تغيير الترتيب</option>
+          <option value="clear-pending">مسح العمليات المعلقة</option>
+          <option value="error">خطأ إداري</option>
+        </select>
+        <select class="cms-status-filter" id="auditStatusFilter">
+          <option value="all">كل الحالات</option>
+          <option value="success">ناجحة</option>
+          <option value="failed">فاشلة</option>
+        </select>
+        <button class="btn btn-outline" type="button" onclick="exportAuditLog('csv')">تصدير CSV</button>
+        <button class="btn btn-outline" type="button" onclick="exportAuditLog('json')">تصدير JSON</button>
+      </div>
+
+      <div class="audit-table-wrap">
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th>الوقت</th>
+              <th>القسم</th>
+              <th>العملية</th>
+              <th>العنصر</th>
+              <th>الحالة</th>
+            </tr>
+          </thead>
+          <tbody id="auditLogBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="admin-section tab-panel" data-tab-panel="sync" hidden>
+      <div class="section-title">
+        <span class="section-kicker">المزامنة</span>
+        <h2>المزامنة</h2>
+        <p>العمليات التي لم يؤكد Apps Script حفظها بعد. تحتفظ كل عملية بمعرّف ثابت لمنع تكرار التنفيذ عند إعادة المحاولة.</p>
+      </div>
+      <div class="cms-toolbar-inline">
+        <button class="btn btn-primary" type="button" onclick="syncPendingNow()">إعادة محاولة مزامنة الكل</button>
+        <button class="btn btn-outline" type="button" onclick="clearLocalCache()">مسح الكاش المحلي</button>
+        <button class="btn btn-dark" type="button" onclick="clearAllPending()">مسح جميع العمليات المعلقة</button>
+      </div>
+      <div class="cms-list" id="pendingList"></div>
+    </section>
+  </main>
+
+  <div class="modal" id="itemEditModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3 id="itemEditTitle">إضافة عنصر</h3>
+        <button class="xbtn" type="button" onclick="closeItemEditor()">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="itemEditForm"></form>
+        <div class="modal-error" id="itemEditError"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="itemEditSave" type="button" onclick="saveItemEditor()">حفظ</button>
+        <button class="btn btn-dark" type="button" onclick="closeItemEditor()">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js?v=10"></script>
+</body>
+</html>

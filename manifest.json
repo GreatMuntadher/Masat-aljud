@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "بوابة الموارد البشرية | شركة ماسة الجود",
+  "short_name": "موارد ماسة الجود",
+  "description": "بوابة الموارد البشرية لشركة ماسة الجود",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen"],
+  "orientation": "any",
+  "theme_color": "#020812",
+  "background_color": "#020812",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
